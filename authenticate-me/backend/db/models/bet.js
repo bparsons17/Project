@@ -2,16 +2,18 @@
 module.exports = (sequelize, DataTypes) => {
   const Bet = sequelize.define('Bet', {
     teams: DataTypes.STRING,
-    moneyline: DataTypes.STRING,
-    spread: DataTypes.STRING,
-    total: DataTypes.STRING,
+    homeTeamMoneyLine: DataTypes.STRING,
+    awayTeamMoneyLine: DataTypes.STRING,
+    homeTeamSpread: DataTypes.STRING,
+    awayTeamSpread: DataTypes.STRING,
+    overTotal: DataTypes.STRING,
+    underTotal: DataTypes.STRING,
     details: DataTypes.TEXT,
-    userId: DataTypes.INTEGER
+    profileId: DataTypes.INTEGER
   }, {});
   Bet.associate = function(models) {
     // associations can be defined here
-    Bet.belongsTo(models.User, { foreignKey: 'userId'})
-    Bet.hasMany(models.Profile, { foreignKey: 'betId' })
+     Bet.belongsTo(models.Profile, { foreignKey: "profileId" });
   };
   return Bet;
 };

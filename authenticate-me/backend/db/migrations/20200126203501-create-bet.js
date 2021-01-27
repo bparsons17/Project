@@ -12,15 +12,27 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      moneyline: {
+      homeTeamMoneyLine: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      spread: {
+      awayTeamMoneyLine: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      total: {
+      homeTeamSpread: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      awayTeamSpread: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      overTotal: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      underTotal: {
         type: Sequelize.STRING,
         allowNull: false,
       },
@@ -28,10 +40,10 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false,
       },
-      userId: {
+      profileId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: "Users" },
+        reference: { model: 'Profiles'}
       },
       createdAt: {
         allowNull: false,
