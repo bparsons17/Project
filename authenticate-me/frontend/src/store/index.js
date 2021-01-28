@@ -2,10 +2,12 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import betReducer from "./betReducer";
 import sessionReducer from "./session";
+import profileReducer from './profileReducer'
 
 const rootReducer = combineReducers({
   session: sessionReducer,
-  bets: betReducer
+  bets: betReducer,
+  profile: profileReducer
 });
 
 let enhancer;

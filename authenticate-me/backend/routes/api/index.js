@@ -8,13 +8,12 @@ const { setTokenCookie } = require("../../utils/auth.js");
 const { User } = require("../../db/models");
 const { restoreUser } = require("../../utils/auth.js");
 const { requireAuth } = require("../../utils/auth.js");
-const saveBetsRouter =require('./saveBet.js')
 router.use("/session", sessionRouter);
 
 router.use("/users", usersRouter);
 router.use('/bets', betRouter)
-router.use('/bets/saveBets', saveBetsRouter)
 router.use('/profile', profileRouter)
+
 
 // router.post("/test", function (req, res) {
 //   res.json({ requestBody: req.body });

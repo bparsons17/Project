@@ -13,7 +13,12 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Bet.associate = function(models) {
     // associations can be defined here
-     Bet.belongsTo(models.Profile, { foreignKey: "profileId" });
+     const columnMapping = {
+       through: 'Profile_Bet',
+       foreignKey: 'betId',
+       otherKey: 'profileId'
+     }
+     Bet.belongsToMany(models.Profile, columnMapping);
   };
   return Bet;
 };
