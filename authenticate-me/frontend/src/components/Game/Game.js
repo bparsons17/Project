@@ -17,10 +17,10 @@ const Game = () => {
        e.preventDefault();
        dispatch(addBetToProfile(betId));
      };
-   
-   
+
     useEffect(() => {
       dispatch(getBets());
+      dispatch(addBetToProfile())
     }, [dispatch]);
     return (
       <div key={betId}>
@@ -28,9 +28,9 @@ const Game = () => {
           <div>
             <h2>{bet.teams}</h2>
             <p>{bet.details}</p>
-            <div className='button-container'>
-              <button className="bet-buttons" onClick={addToProfile}>
-                {bet.homeTeamMoneyLine}
+            <div className="button-container">
+              <button  className="bet-buttons"onClick={addToProfile}> 
+              {bet.homeTeamMoneyLine}
               </button>
               <button className="bet-buttons" onClick={addToProfile}>
                 {bet.awayTeamMoneyLine}
@@ -41,11 +41,13 @@ const Game = () => {
               <button className="bet-buttons" onClick={addToProfile}>
                 {bet.awayTeamSpread}
               </button>
-              <button className="bet-buttons" onClick={addToProfile}>
+              <button
+                className="bet-buttons"
+                onClick={(e) => addBetToProfile(e.target)}
+              >
                 {bet.overTotal}
               </button>
-              <button
-                className="bet-buttons" onClick={addToProfile}>
+              <button className="bet-buttons" onClick={addToProfile}>
                 {bet.underTotal}
               </button>
             </div>

@@ -4,6 +4,7 @@ const fetchProfile = (payload) => ({
     type:SET_PROFILE,
     payload,
 })
+
 export const getProfile = () => async (dispatch) => {
     const res = await fetch('api/profile')
     console.log(res)

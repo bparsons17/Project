@@ -40,7 +40,6 @@ export const addBetToProfile = (betId) => async (dispatch) => {
 }
 export const getProfileBets = () => async (dispatch) => {
     const res = await fetch('/api/bets/profile')
-    console.log(res, 'dkkdkdk')
     let newBets = {}
     for(let profileBet of res.data) {
         const bet = profileBet['Bet']
@@ -50,7 +49,6 @@ export const getProfileBets = () => async (dispatch) => {
 }
 export const getBets = () => async (dispatch) => {
   const res = await fetch("/api/bets");
-  console.log(res)
 
   if (res.ok) {
     // const bets = await res.json();
