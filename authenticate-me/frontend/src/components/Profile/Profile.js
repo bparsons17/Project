@@ -23,7 +23,6 @@ const Profile = () => {
       <>
         <div className="image-container">
           {" "}
-          My Bets
           {/* <img
             className="pat-image"
             src="https://static.clubs.nfl.com/image/private/t_editorial_landscape_12_desktop/chiefs/indf93tk5fvcty97rghw"
@@ -31,12 +30,9 @@ const Profile = () => {
           <div>
             {bets.map((bet) => (
               <div>
-                <div>{bet.homeTeamMoneyLine}</div>
-                <div>{bet.awayTeamMoneyLine}</div>
-                <div>{bet.homeTeamSpread}</div>
-                <div>{bet.awayTeamSpread}</div>
-                <div>{bet.overTotal}</div>
-                <div>{bet.underTotal}</div>
+                <h2>My Bets</h2>
+                <div>{`${bet.player}: Over ${bet.over}`}</div>
+                <div>{`${bet.player}: Under ${bet.under}`}</div>
               </div>
             ))}
           </div>

@@ -8,42 +8,21 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      teams: {
+      player: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      homeTeamMoneyLine: {
+      over: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      awayTeamMoneyLine: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      homeTeamSpread: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      awayTeamSpread: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      overTotal: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      underTotal: {
+      under: {
         type: Sequelize.STRING,
         allowNull: false,
       },
       details: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING,
         allowNull: false,
-      },
-      profileId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        reference: { model: 'Profiles'}
       },
       createdAt: {
         allowNull: false,

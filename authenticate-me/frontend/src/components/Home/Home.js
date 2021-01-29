@@ -4,32 +4,39 @@ import { NavLink, Route } from 'react-router-dom'
 import { getBets } from '../../store/betReducer'
 import { addBetToProfile } from "../../store/betReducer";
 
+
 const Home = () => {
  
     const dispatch = useDispatch()
     const bets = useSelector((state)=>Object.values(state.bets))
+    
     useEffect(()=> {
         dispatch(getBets())
+        
     },[dispatch])
-    
+    console.log(bets)
+   
+   
+
+   
+  //  const game1 = bets[0]
+  //  const game2 = bets[1]
+  //  const {team, moneyline, spread, over, under} = game1;
+ 
+  
 
     return (
       <div className="home">
         <div className="bets">
-          {" "}
-          Check out todays games!
+          {} Check out todays player props!
           {bets.map((bet) => (
             <div>
               <NavLink key={bet.id} to={`/bets/${bet.id}`}>
-                <li key={bet.id}>{bet.teams}</li>
+                <li key={bet.id}>{bet.player}</li>
               </NavLink>
-              
-              <button>{bet.homeTeamMoneyLine}</button>
-              <button>{bet.awayTeamMoneyLine}</button>
-              <button>{bet.homeTeamSpread}</button>
-              <button>{bet.awayTeamSpread}</button>
-              <button>{bet.overTotal}</button>
-              <button>{bet.underTotal}</button>
+              <div>{bet.details}</div>
+              <button>{`Over ${bet.over}`}</button>
+              <button>{`Under ${bet.under}`}</button>
             </div>
           ))}
         </div>

@@ -1,16 +1,10 @@
 import {fetch } from './csrf.js'
 const initialState = {
   1: {
-    teams: "Kansas City Chiefs vs Tampa Bay Buccaneers",
-    homeTeamMoneyLine: "KC -166",
-    awayTeamMoneyLine: "TB +146",
-    homeTeamSpread: "KC -3",
-    awayTeamSpread: "TB +3",
-    overTotal: "o57",
-    underTotal: "u57",
-    details:
-      "Game will take place at Raymond James Stadium in Tampa Bay Florida",
-    profileId: 1,
+    player: "Lebron James",
+    details: "point total",
+    over: "17.5",
+    under: "17.5",
     createdAt: new Date("2021-01-05"),
     updatedAt: new Date("2021-01-05"),
   },
@@ -19,24 +13,27 @@ const ADD_BETS = 'bets/ADD_BETS'
 const SET_BETS = 'bets/SET_BETS'
 const SET_ONE_BET = 'bets/SET_ONE_BET'
 
-const addBets = (betId) => ({
+const addBets = (payload) => ({
     type:ADD_BETS,
-    betId,
+    payload,
 })
 const setBets = (payload) => ({
   type: SET_BETS,
   payload,
 });
-export const addBetToProfile = (betId) => async (dispatch) => {
+const setOneBet = (payload) => ({
+    type:SET_ONE_BET,
+    payload,
+})
+export const addBetToProfile = (userId, betId) => async (dispatch) => {
     
     const res = await fetch(`/api/profile/${betId}`, {
         method:'POST',
-        body: JSON.stringify({ betId })
+        body: JSON.stringify({ userId, betId })
     })
     console.log(res,'test')
-    if(res.ok) {
         dispatch(addBets(betId))
-    }
+    
 }
 export const getProfileBets = () => async (dispatch) => {
     const res = await fetch('/api/bets/profile')
@@ -59,7 +56,11 @@ export const getBets = () => async (dispatch) => {
     dispatch(setBets(newBets));
   }
 };
-
+ export const getOneBet = (id) => async (dispatch) => {
+    const res = await fetch(`/api/bet/${id}`)
+    console.log(res, 'teste')
+    dispatch(setOneBet(res.data))
+}
 
 const betReducer = (state= initialState, action) => {
     // let newState = Object.assign({}, state);
@@ -69,7 +70,14 @@ const betReducer = (state= initialState, action) => {
             console.log(action.payload, 'test2')
             newState = Object.assign({}, state, action.payload)
             return newState;
-        
+        case SET_ONE_BET:
+            newState= [action.payload]
+            console.log(newState)
+            return newState;
+        case ADD_BETS:
+            newState = [...state, action.payload]
+            console.log("work", newState)
+            return newState;
         default:
             return state
     }

@@ -6,9 +6,11 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Home from './components/Home/Home.js'
-import Game from "./components/Game/Game";
 import BetForm from "./components/BetForm/BetForm";
 import Profile from "./components/Profile/Profile";
+import Bet from "./components/Bets/bets";
+import OneBet from './components/OneBet/OneBet'
+
 
 function App() {
   const dispatch = useDispatch();
@@ -32,13 +34,16 @@ function App() {
             <Home />
           </Route>
           <Route path="/bets/:betId">
-            <Game />
-           
+            <OneBet />
           </Route>
           
           <Route path='/profile'>
             <Profile />
           </Route>
+          <Route path='/bets'>
+            <Bet />
+          </Route>
+          
     
         </Switch>
       )}

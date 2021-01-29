@@ -13,7 +13,7 @@ router.get('/', asyncHandler(async(req,res) => {
 
 router.post('/:betId',
   asyncHandler(async (req, res) => {
-  const betId = parseInt(req.params.betId)
+  const betId = parseInt(req.params.betId, 10)
   const profileId = 1;
     console.log(betId);
     const saved = await Profile_Bet.create({

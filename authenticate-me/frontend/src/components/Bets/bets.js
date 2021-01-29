@@ -4,12 +4,11 @@ import { useParams } from "react-router-dom";
 import { getBets } from "../../store/betReducer";
 import BetForm from "../BetForm/BetForm";
 import { addBetToProfile } from '../../store/betReducer'
-import './game.css'
+import './bet.css'
 
 
-const Game = () => {
+const Bet = () => {
     const betId = Number.parseInt(useParams().betId)
-    console.log(betId)
     const dispatch = useDispatch();
     const bets = useSelector(({ bets }) => Object.values(bets).filter(bet => bet.id === betId));
 
@@ -26,30 +25,16 @@ const Game = () => {
       <div key={betId}>
         {bets.map((bet) => (
           <div>
-            <h2>{bet.teams}</h2>
+            <h2>{bet.player}</h2>
             <p>{bet.details}</p>
             <div className="button-container">
               <button  className="bet-buttons"onClick={addToProfile}> 
-              {bet.homeTeamMoneyLine}
+              {`Over ${bet.over}`}
               </button>
               <button className="bet-buttons" onClick={addToProfile}>
-                {bet.awayTeamMoneyLine}
+                {bet.under}
               </button>
-              <button className="bet-buttons" onClick={addToProfile}>
-                {bet.homeTeamSpread}
-              </button>
-              <button className="bet-buttons" onClick={addToProfile}>
-                {bet.awayTeamSpread}
-              </button>
-              <button
-                className="bet-buttons"
-                onClick={(e) => addBetToProfile(e.target)}
-              >
-                {bet.overTotal}
-              </button>
-              <button className="bet-buttons" onClick={addToProfile}>
-                {bet.underTotal}
-              </button>
+              
             </div>
           </div>
         ))}
@@ -57,4 +42,4 @@ const Game = () => {
     );
 }
 
-export default Game;
+export default Bet;

@@ -4,10 +4,12 @@ import betReducer from "./betReducer";
 import sessionReducer from "./session";
 import profileReducer from './profileReducer'
 
+
 const rootReducer = combineReducers({
   session: sessionReducer,
   bets: betReducer,
-  profile: profileReducer
+  profile: profileReducer,
+
 });
 
 let enhancer;
