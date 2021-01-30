@@ -16,7 +16,7 @@ router.get('/profile', asyncHandler(async(req,res) => {
             model: Bet
         }
     })
-    console.log(profileBets)
+  
     res.json(profileBets)
 
 }))

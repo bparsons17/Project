@@ -9,35 +9,36 @@ import * as sessionActions from '../../store/session'
 
 const OneBet = () => {
     const dispatch = useDispatch()
-    const oneBet = useSelector((state)=> state.bets[0])
+    const oneBet = useSelector((state)=> (state.bets[0]))
+    console.log(oneBet,'yuh')
     const user = useSelector((state) => state.session.user);
     const urlId = useParams()
+    
 
-const addToProfile = (e) => {
-    e.preventDefault()
+ const addToProfile = (event) => {
+    event.preventDefault()
     dispatch(addBetToProfile(urlId.betId, user.id))
+    
     }
+    
+
 
 
     useEffect(() => {
       dispatch(getOneBet(urlId.betId));
-    },[dispatch, urlId.betId]);
+    },[]);
 
     if(!oneBet) return null;
 
     return (
       <div>
-        <div>{oneBet.player}</div>
         <div>{oneBet.details}</div>
         <div>
-          {`Over ${oneBet.over}`}
+          {oneBet.bet}
             <button onClick={addToProfile}>Add to Profile</button>
           
         </div>
-        <div>
-          {`Under ${oneBet.under}`}
-          <button onClick={addToProfile}>Add to Profile</button>
-        </div>
+       
       </div>
     );
 }   

@@ -12,15 +12,19 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      over: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      under: {
+      bet: {
         type: Sequelize.STRING,
         allowNull: false,
       },
       details: {
+        type: Sequelize.TEXT,
+        allowNull: false,
+      },
+      odds: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      opponent: {
         type: Sequelize.STRING,
         allowNull: false,
       },

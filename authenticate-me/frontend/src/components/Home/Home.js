@@ -14,7 +14,7 @@ const Home = () => {
         dispatch(getBets())
         
     },[dispatch])
-    console.log(bets)
+    
    
    
 
@@ -35,8 +35,8 @@ const Home = () => {
                 <li key={bet.id}>{bet.player}</li>
               </NavLink>
               <div>{bet.details}</div>
-              <button>{`Over ${bet.over}`}</button>
-              <button>{`Under ${bet.under}`}</button>
+              <div>{bet.bet}</div>
+              <div>{bet.odds}</div>
             </div>
           ))}
         </div>

@@ -9,14 +9,20 @@ import './profile.css'
 const Profile = () => {
    const dispatch = useDispatch()
    const profiles = useSelector((state)=> Object.values(state.profile))
+    const user = useSelector((state) => state.session.user);
    const bets = useSelector((state) => Object.values(state.bets));
-  console.log(bets,'')
+   console.log(bets)
+
+   
+   
   
    useEffect(()=> {
      console.log('test')
-       dispatch(getProfile())
+       dispatch(getProfile(user.id))
        dispatch(getProfileBets())
+  
    }, [dispatch])
+  
   
     
     return (
@@ -28,11 +34,11 @@ const Profile = () => {
             src="https://static.clubs.nfl.com/image/private/t_editorial_landscape_12_desktop/chiefs/indf93tk5fvcty97rghw"
           ></img> */}
           <div>
+            <h2>My Bets</h2>
             {bets.map((bet) => (
               <div>
-                <h2>My Bets</h2>
-                <div>{`${bet.player}: Over ${bet.over}`}</div>
-                <div>{`${bet.player}: Under ${bet.under}`}</div>
+                <div>{`${bet.player}: ${bet.bet}`}</div>
+                <div></div>
               </div>
             ))}
           </div>

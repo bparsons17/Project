@@ -11,6 +11,7 @@ router.get('/', asyncHandler(async(req,res) => {
 
 }))
 
+
 router.post('/:betId',
   asyncHandler(async (req, res) => {
   const betId = parseInt(req.params.betId, 10)

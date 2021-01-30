@@ -1,4 +1,4 @@
-
+import { fetch } from "./csrf.js";
 const SET_PROFILE = 'profile/SET_PROFILE'
 const fetchProfile = (payload) => ({
     type:SET_PROFILE,
@@ -8,24 +8,17 @@ const fetchProfile = (payload) => ({
 export const getProfile = () => async (dispatch) => {
     const res = await fetch('api/profile')
     console.log(res)
-        
-        if(res.ok) {
-        const profile = await res.json()
-        dispatch(fetchProfile(profile))
-    }
+
+        dispatch(fetchProfile(res.data))
+    
 }
-const initState = {
-    1:{
-        id: 1,
-    }
-}
+const initState = {}
+    
 function profileReducer(state = initState, action) {
-    let newState = Object.assign({}, state);
+    let newState;
     switch(action.type) {
         case SET_PROFILE: 
-            for(let profile of action.payload) {
-                newState[profile.id] = profile;
-            } 
+            newState = [action.payload]
             return newState
         
             default:

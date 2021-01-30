@@ -1,14 +1,15 @@
 import {fetch } from './csrf.js'
-const initialState = {
-  1: {
-    player: "Lebron James",
-    details: "point total",
-    over: "17.5",
-    under: "17.5",
-    createdAt: new Date("2021-01-05"),
-    updatedAt: new Date("2021-01-05"),
-  },
-};
+const initialState = {}
+
+//   1: {
+//     player: "Lebron James",
+//     details: "point total",
+//     over: "17.5",
+//     under: "17.5",
+//     createdAt: new Date("2021-01-05"),
+//     updatedAt: new Date("2021-01-05"),
+//   },
+// };
 const ADD_BETS = 'bets/ADD_BETS'
 const SET_BETS = 'bets/SET_BETS'
 const SET_ONE_BET = 'bets/SET_ONE_BET'
@@ -46,15 +47,16 @@ export const getProfileBets = () => async (dispatch) => {
 }
 export const getBets = () => async (dispatch) => {
   const res = await fetch("/api/bets");
+  console.log(res, '')
 
-  if (res.ok) {
+  
     // const bets = await res.json();
     let newBets = {}
     for(let bet of res.data) {
         newBets[bet.id] = bet
     }
     dispatch(setBets(newBets));
-  }
+  
 };
  export const getOneBet = (id) => async (dispatch) => {
     const res = await fetch(`/api/bet/${id}`)
@@ -68,10 +70,10 @@ const betReducer = (state= initialState, action) => {
     switch (action.type) {
         case SET_BETS:
             console.log(action.payload, 'test2')
-            newState = Object.assign({}, state, action.payload)
+            newState = action.payload
             return newState;
         case SET_ONE_BET:
-            newState= [action.payload]
+            newState = [action.payload]
             console.log(newState)
             return newState;
         case ADD_BETS:
