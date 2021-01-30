@@ -12,7 +12,7 @@ const Profile = () => {
     const user = useSelector((state) => state.session.user);
    const bets = useSelector((state) => Object.values(state.bets));
    console.log(bets)
-
+  
    
    
   

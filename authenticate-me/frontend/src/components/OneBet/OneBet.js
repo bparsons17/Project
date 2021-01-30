@@ -14,10 +14,12 @@ const OneBet = () => {
     const user = useSelector((state) => state.session.user);
     const urlId = useParams()
     
+    const betId = urlId.betId;
+    
 
  const addToProfile = (event) => {
     event.preventDefault()
-    dispatch(addBetToProfile(urlId.betId, user.id))
+    dispatch(addBetToProfile(user.id, betId))
     
     }
     
@@ -25,7 +27,8 @@ const OneBet = () => {
 
 
     useEffect(() => {
-      dispatch(getOneBet(urlId.betId));
+      dispatch(getOneBet(betId));
+      // dispatch(addBetToProfile(betId))
     },[]);
 
     if(!oneBet) return null;
@@ -35,7 +38,7 @@ const OneBet = () => {
         <div>{oneBet.details}</div>
         <div>
           {oneBet.bet}
-            <button onClick={addToProfile}>Add to Profile</button>
+            <button type='button' onClick={addToProfile}>Add to Profile</button>
           
         </div>
        
