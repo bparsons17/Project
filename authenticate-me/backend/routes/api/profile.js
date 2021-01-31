@@ -11,6 +11,14 @@ router.get('/', asyncHandler(async(req,res) => {
 
 }))
 
+router.delete('/delete', asyncHandler(async(req,res) => {
+  const  betId  = req.body
+  console.log(betId,'ldldld')
+  const deleted = await Profile_Bet.findOne({
+    where: betId
+  })
+  await deleted.destroy()
+}))
 
 router.post('/:betId',
   asyncHandler(async (req, res) => {
