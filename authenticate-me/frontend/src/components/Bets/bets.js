@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getBets } from "../../store/betReducer";
-import BetForm from "../BetForm/BetForm";
-import { addBetToProfile } from '../../store/betReducer'
+import { addFromBetsPage, getBets } from "../../store/betReducer";
 import './bet.css'
 
 
@@ -12,11 +10,20 @@ const Bet = () => {
     const dispatch = useDispatch();
     const bets = useSelector((state) => Object.values(state.bets));
     console.log(bets,'prob')
+    const user = useSelector((state) => state.session.user);
+    const urlId = useParams();
+
+    const betId = urlId.betId;
+
+     const addToProfile = (event) => {
+       event.preventDefault();
+       dispatch(addFromBetsPage());
+     };
 
 
     useEffect(() => {
       dispatch(getBets());
-    }, [dispatch]);
+    }, []);
     return (
     <div>
       <table className="table table-dark">
@@ -39,7 +46,7 @@ const Bet = () => {
               <td>{bet.odds}</td>
               <td>{bet.opponent}</td>
               <td>
-                <button type="button" class="btn btn-primary">
+                <button type="button" class="btn btn-primary"onClick={addToProfile}>
                   Add Bet
                 </button>
               </td>

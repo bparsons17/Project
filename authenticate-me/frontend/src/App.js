@@ -10,6 +10,7 @@ import BetForm from "./components/BetForm/BetForm";
 import Profile from "./components/Profile/Profile";
 import Bet from "./components/Bets/bets";
 import OneBet from './components/OneBet/OneBet'
+import ImageCard from "./components/ImageCards/ImageCard";
 
 
 function App() {

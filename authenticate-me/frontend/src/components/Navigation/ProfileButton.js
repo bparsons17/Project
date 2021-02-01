@@ -41,9 +41,6 @@ function ProfileButton({ user }) {
           <div>
             <button onClick={logout}>Log Out</button>
           </div>
-          <div className='nav-links'>
-            <NavLink to='/profile'>Profile</NavLink>
-          </div>
         </div>
       )}
     </>

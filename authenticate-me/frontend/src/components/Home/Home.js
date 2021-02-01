@@ -3,6 +3,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import { NavLink, Route } from 'react-router-dom'
 import { getBets } from '../../store/betReducer'
 import { addBetToProfile } from "../../store/betReducer";
+import ImageCard from '../ImageCards/ImageCard';
+import ImageCard2 from "../ImageCards/ImageCard2";
+import './Home.css'
 
 
 const Home = () => {
@@ -26,22 +29,36 @@ const Home = () => {
   
 
     return (
-      <div className="home">
+      <div className="container">
         <div className="bets">
-          {} Check out todays player props!
+          {} <h2>Check Out Todays Player Props</h2>
           {bets.map((bet) => (
-            <div>
-              <NavLink key={bet.id} to={`/bets/${bet.id}`}>
-                <li key={bet.id}>{bet.player}</li>
-              </NavLink>
-              <div>{bet.details}</div>
-              <div>{bet.bet}</div>
-              <div>{bet.odds}</div>
+            <div className="card">
+              <div className="card-body">
+                <h5 className="card-title">{bet.player}</h5>
+                <h6 className="card-subtitle mb-2 ">{bet.bet}</h6>
+                <p className="card-text">{bet.details}</p>
+                <button type="button" className="btn btn-primary">
+                  Add to Profile
+                </button>
+                <NavLink
+                  to={`/bets/${bet.id}`}
+                  type="button"
+                  className="btn btn-primary"
+                >
+                  See More
+                </NavLink>
+              </div>
             </div>
           ))}
         </div>
 
         <Route path="/bets/:betId"></Route>
+        <div className="imageCard-container">
+          <ImageCard />
+          <ImageCard2 />
+        </div>
+        
       </div>
     );
 }

@@ -32,4 +32,16 @@ router.post('/:betId',
     res.json(saved);
   })
 );
+router.get(
+  "/create",
+  asyncHandler(async (req, res) => {
+    const { profileId, betId } = req.body;
+    const bet = await Profile_Bet.create({
+      profileId,
+      betId,
+    });
+    res.json({ bet });
+  })
+);
+
 module.exports = router;

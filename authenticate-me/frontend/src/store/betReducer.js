@@ -46,6 +46,13 @@ export const addBetToProfile = (userId, betId) => async (dispatch) => {
         dispatch(addBets(betId, userId))
     
 }
+export const addFromBetsPage = () => async (dispatch) => {
+    const res = await fetch('api/bets/create',{
+        method: "Post",
+        body: JSON.stringify()
+    })
+    dispatch(addBets(res.data))
+}
 export const getProfileBets = () => async (dispatch) => {
   const res = await fetch("/api/bets/profile");
   let newBets = {};

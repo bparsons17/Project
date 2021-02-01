@@ -1,19 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useParams } from "react-router-dom";
-import { getProfile } from '../../store/profileReducer'
+import { deleteBetFromProfile, getProfile } from '../../store/profileReducer'
 import { getBets, getProfileBets } from '../../store/betReducer'
 import './profile.css'
+import { useHistory } from 'react-router-dom'
 
 
 const Profile = () => {
    const dispatch = useDispatch()
+   const history = useHistory()
    const profiles = useSelector((state)=> Object.values(state.profile))
-    const user = useSelector((state) => state.session.user);
+   const user = useSelector((state) => state.session.user);
+   console.log(user,'kdkdkd')
    const bets = useSelector((state) => Object.values(state.bets));
    console.log(bets)
   
-   
+   const deleteBet = (e) => {
+     e.preventDefault()
+     dispatch(deleteBetFromProfile())
+     history.push('/bets')
+   }
    
   
    useEffect(()=> {
@@ -37,8 +44,8 @@ const Profile = () => {
             <h2>My Bets</h2>
             {bets.map((bet) => (
               <div>
-                <div>{`${bet.player}: ${bet.bet}`}</div>
-                <div></div>
+                <div>{`${bet.player}: ${bet.bet} ${bet.odds}`}</div>
+                <button onClick={deleteBet}>delete</button>
               </div>
             ))}
           </div>
