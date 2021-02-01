@@ -6,11 +6,10 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Home from './components/Home/Home.js'
-import BetForm from "./components/BetForm/BetForm";
 import Profile from "./components/Profile/Profile";
 import Bet from "./components/Bets/bets";
 import OneBet from './components/OneBet/OneBet'
-import ImageCard from "./components/ImageCards/ImageCard";
+
 
 
 

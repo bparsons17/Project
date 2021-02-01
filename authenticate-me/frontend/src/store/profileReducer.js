@@ -35,7 +35,7 @@ export const addFromBetsPage = () => async (dispatch) => {
 
 export const getProfile = () => async (dispatch) => {
     const res = await fetch('api/profile')
-    console.log(res)
+    
 
         dispatch(fetchProfile(res.data))
     

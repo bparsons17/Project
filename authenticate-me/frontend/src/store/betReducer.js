@@ -42,7 +42,6 @@ export const addBetToProfile = (userId, betId) => async (dispatch) => {
         method:'POST',
         body: JSON.stringify({ userId, betId })
     })
-    console.log(res,'test')
         dispatch(addBets(betId, userId))
     
 }
@@ -65,7 +64,7 @@ export const getProfileBets = () => async (dispatch) => {
 export const getBets = () => {
     return async (dispatch) => {
   const res = await fetch("/api/bets");
-  console.log(res, '')
+  
   dispatch(setBets(res.data));
 }
 
@@ -80,7 +79,7 @@ export const getBets = () => {
  export const getOneBet = (id) => {
      return async (dispatch) => {
     const res = await fetch(`/api/bet/${id}`)
-    console.log(res, 'teste')
+  
     dispatch(setOneBet(res.data))
  }
 }
@@ -90,16 +89,16 @@ const betReducer = (state= initialState, action) => {
     let newState;
     switch (action.type) {
         case SET_BETS:
-            console.log(action.payload, 'test2')
+            
             newState = action.payload
             return newState;
         case SET_ONE_BET:
             newState = [action.payload]
-            console.log(newState)
+           
             return newState;
         case ADD_BETS:
             newState = [...state, action.payload]
-            console.log("work", newState)
+            
             return newState;
         default:
             return state

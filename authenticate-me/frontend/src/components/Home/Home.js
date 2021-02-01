@@ -1,8 +1,7 @@
-import { useEffect,useState } from 'react'
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { NavLink, Route } from 'react-router-dom'
 import { getBets } from '../../store/betReducer'
-import { addBetToProfile } from "../../store/betReducer";
 import ImageCard from '../ImageCards/ImageCard';
 import ImageCard2 from "../ImageCards/ImageCard2";
 import './Home.css'

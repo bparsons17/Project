@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect  } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import {NavLink} from 'react-router-dom'
@@ -14,7 +14,7 @@ const OneBet = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const oneBet = useSelector((state)=> (state.bets[0]))
-    console.log(oneBet,'yuh')
+   
     const user = useSelector((state) => state.session.user);
     const urlId = useParams()
     
@@ -33,7 +33,7 @@ const OneBet = () => {
     useEffect(() => {
       dispatch(getOneBet(betId));
       // dispatch(addBetToProfile(betId))
-    },[]);
+    },[betId, dispatch]);
 
     if(!oneBet) return null;
 

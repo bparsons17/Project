@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
 import { addFromBetsPage, getBets } from "../../store/betReducer";
 import './bet.css'
 
@@ -9,11 +8,11 @@ import './bet.css'
 const Bet = () => {
     const dispatch = useDispatch();
     const bets = useSelector((state) => Object.values(state.bets));
-    console.log(bets,'prob')
-    const user = useSelector((state) => state.session.user);
-    const urlId = useParams();
 
-    const betId = urlId.betId;
+    const user = useSelector((state) => state.session.user);
+  
+
+    
 
      const addToProfile = (event) => {
        event.preventDefault();
@@ -23,7 +22,7 @@ const Bet = () => {
 
     useEffect(() => {
       dispatch(getBets());
-    }, []);
+    }, [dispatch]);
     return (
     <div>
       <table className="table table-dark">

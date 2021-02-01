@@ -4,7 +4,7 @@ const Tracker = () => {
       <>
       <div className='wrapper'>
         <table className="table table-dark table-striped">
-          <thead>
+          <thead className='fuzz'>
             <tr className="table-dark">
               <th className="table-dark">Results</th>
               <th className="table-dark">Record</th>
