@@ -27,7 +27,7 @@ const Profile = () => {
    useEffect(()=> {
      console.log("test");
      dispatch(getProfile(user.id));
-     dispatch(getProfileBets());
+     dispatch(getProfileBets(user.id));
    }, [dispatch])
   
   
@@ -42,7 +42,10 @@ const Profile = () => {
           ></img> */}
           <div>
             <h2>My Bets</h2>
-            <div className="container">
+            <div className='wrap'>
+              <div className="container2">
+
+            </div>
               {bets.map((bet) => (
                 <div className="card3">
                   <div className="card-body3">
@@ -60,14 +63,16 @@ const Profile = () => {
                   </div>
                 </div>
               ))}
-              <div> 
-                <h2>Results Summary</h2>
+              <h2>Results Summary</h2>
+              <div className='track-wrap'> 
+                
                 <Tracker />
               </div>
               
             </div>
           </div>
         </div>
+      
       </>
     );
 
