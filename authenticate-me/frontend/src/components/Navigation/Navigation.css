@@ -16,3 +16,6 @@
 .nav-link {
     color: rgb(0, 118, 249)
 }
+.btn-secondary.dropdown-toggle {
+    margin: 5px;
+}

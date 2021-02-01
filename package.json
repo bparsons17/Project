@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {"node":"12.20.0"},
     "scripts": {
     "heroku-postbuild": "npm run build --prefix frontend",
     "install": "npm --prefix backend install backend && npm --prefix frontend install frontend",
@@ -25,3 +26,4 @@
   },
   "homepage": "https://github.com/bparsons17/Project#readme"
 }
+
