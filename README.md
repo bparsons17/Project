@@ -16,7 +16,7 @@
   ## Features
   - Secure authentication using bcryptjs library
   - Only grants access to features like saving betsto authorized users
-  - Designed around a relational database schema, which allows users to view, save and delete bets
+  - Designed around a relational database schema, which allows users to view, save, and delete bets
   - Gives users an ability to search and sort games to find the bet they are looking for
   
   ## Future Implementations
