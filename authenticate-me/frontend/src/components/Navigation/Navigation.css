@@ -2,16 +2,16 @@
     position: sticky;
 }
 .navbar-light {
-    background-color: salmon;
-    color: rgb(0, 118, 249)
+    background-color: rgb(255, 132, 132);
+    color: rgb(239, 246, 238)
 }
 .btn-outline-success {
-   color:rgb(0, 118, 249);
-   outline: rgb(0,118,249);
+   color:rgb(35, 116, 171);
+   outline: rgb(35, 116, 171);
    border-radius: 5px rgb(0,118,249);
 }
 .btn-outline-success:hover {
-    background-color: rgb(0, 118, 249);;
+    background-color: rgb(35, 116, 171);;
 }
 .nav-link {
     color: rgb(0, 118, 249)

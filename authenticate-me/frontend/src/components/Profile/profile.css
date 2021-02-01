@@ -1,9 +1,19 @@
-.pat-image {
-    max-width: 100%;
-    height: auto;
-    display: block
+h2 {
+    display: flex;
+    justify-content: center;
 }
-.image-container {
-    width: 300px;
-    height: auto;
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    
+}
+.card-body3 {
+    background-color: rgb(255, 132, 132);
+    border-radius: 10px;
+    border: 3mm solid rgb(55, 80, 92);
+    margin: 5px;
+   
 }

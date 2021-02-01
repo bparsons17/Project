@@ -1,8 +1,8 @@
  body {
-     background-color: rgb(0, 118, 249);
+     background-color:rgb(35, 116, 171)
  }
  .container {
-  
+  background-color:rgb(35, 116, 171);
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -12,31 +12,33 @@
   z-index: -1; 
 
 } 
-/* #root {
-    background-color: rgb(0, 118, 249);
-} */
 
-/* .btn-primary {
-    background-color: salmon;
-    
-} */
+.card {
+    background-color:rgb(35, 116, 171);
+}
 
 .card-body {
-    background-color: salmon;
-    border:rgb(60, 64,67) 5px solid;
-    box-shadow: whitesmoke;
+    background-color: rgb(255, 132, 132);
+    border-radius: 10px;
+   border: 3mm solid rgb(55, 80, 92)
     
 }
 
 .card-subtitle {
-    color: rgb(60, 64,67)
+    color: black
 } 
 h2{
    font-family: Verdana, Geneva, Tahoma, sans-serif;
    font-weight: bold;
+   color: black;
+}
+h5, h6, p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
 }
 .btn-primary {
     margin: 2px;
+    background-color: rgb(35, 116, 171);
 }
 /* .bron-pic {
     width: 200px;
@@ -50,5 +52,6 @@ h2{
     flex-direction: column;
     justify-self: space-between;
     margin: 50px;
+    border-radius: 20px;
     /* border: rgb(0, 118, 249) 5px solid; */
 }

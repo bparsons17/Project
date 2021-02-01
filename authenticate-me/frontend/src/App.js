@@ -13,6 +13,7 @@ import OneBet from './components/OneBet/OneBet'
 import ImageCard from "./components/ImageCards/ImageCard";
 
 
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -47,7 +48,9 @@ function App() {
           
     
         </Switch>
+        
       )}
+      
     </>
   );
 }

@@ -5,6 +5,8 @@ import {NavLink} from 'react-router-dom'
 import {addBetToProfile, getOneBet} from '../../store/betReducer'
 import * as sessionActions from '../../store/session'
 
+import './OneBets.css'
+
 
 
 
@@ -36,23 +38,46 @@ const OneBet = () => {
     if(!oneBet) return null;
 
     return (
-      <div>
-        <div>{oneBet.details}</div>
-        <div>
-          {oneBet.bet}
-
-          <NavLink
-            to={"/profile"}
-            className="btn btn-primary"
-            type="button"
-            onClick={addToProfile}
-          >
-            Add to Profile
-          </NavLink>
+      <div className="container">
+        <div className="card2">
+          <div className="card-body">
+            <h5 className="card-title">{oneBet.player}</h5>
+            <h6 className="card-subtitle mb-2 ">{oneBet.bet}</h6>
+            <p className="card-text">{oneBet.details}</p>
+            <table className="table table-dark">
+              <thead>
+                <tr className="table-dark">
+                  <th>Player</th>
+                  <th>Bet</th>
+                  <th>Odds</th>
+                  <th>Opponent</th>
+                  <th>Opponent Defensive Rating</th>
+                  <th> Expert Pick</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="table-active">
+                  <td className="table-active">{oneBet.player}</td>
+                  <td className="table-active">{oneBet.bet}</td>
+                  <td className="table-active">{oneBet.odds}</td>
+                  <td className="table-active">{oneBet.opponent}</td>
+                  <td className="table-active">26th</td>
+                  <td className="table-active">Over</td>
+                </tr>
+              </tbody>
+            </table>
+            <NavLink
+              to={"/profile"}
+              className="btn btn-primary"
+              type="button"
+              onClick={addToProfile}
+            >
+              Add to Profile
+            </NavLink>
+          </div>
         </div>
+
       </div>
-    );
-}   
-
+    );   
+}
 export default OneBet;
-

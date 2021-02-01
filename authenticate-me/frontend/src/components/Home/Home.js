@@ -31,7 +31,9 @@ const Home = () => {
     return (
       <div className="container">
         <div className="bets">
+          <div>
           {} <h2>Check Out Todays Player Props</h2>
+          </div>
           {bets.map((bet) => (
             <div className="card">
               <div className="card-body">

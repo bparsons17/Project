@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useParams } from "react-router-dom";
+import { Redirect, useParams, NavLink } from "react-router-dom";
 import { deleteBetFromProfile, getProfile } from '../../store/profileReducer'
 import { getBets, getProfileBets } from '../../store/betReducer'
 import './profile.css'
@@ -19,15 +19,14 @@ const Profile = () => {
    const deleteBet = (e) => {
      e.preventDefault()
      dispatch(deleteBetFromProfile())
-     history.push('/bets')
+     history.push('/')
    }
    
   
    useEffect(()=> {
-     console.log('test')
-       dispatch(getProfile(user.id))
-       dispatch(getProfileBets())
-  
+     console.log("test");
+     dispatch(getProfile(user.id));
+     dispatch(getProfileBets());
    }, [dispatch])
   
   
@@ -42,15 +41,49 @@ const Profile = () => {
           ></img> */}
           <div>
             <h2>My Bets</h2>
-            {bets.map((bet) => (
-              <div>
-                <div>{`${bet.player}: ${bet.bet} ${bet.odds}`}</div>
-                <button onClick={deleteBet}>delete</button>
-              </div>
-            ))}
+            <div className="container">
+              {bets.map((bet) => (
+                <div className="card3">
+                  <div className="card-body3">
+                    <h5 className="card-title">{`${bet.player}: ${bet.bet}`}</h5>
+
+                    <p className="card-text">Odds: {bet.odds}</p>
+                    <p className="card-text">Opponent: {bet.opponent}</p>
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      onClick={deleteBet}
+                    >
+                      Delete Bet
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </>
     );
+
 }
+
+//            div className="card">
+//               <div className="card-body">
+//                 <h5 className="card-title">{bet.player}</h5>
+//                 <h6 className="card-subtitle mb-2 ">{bet.bet}</h6>
+//                 <p className="card-text">{bet.details}</p>
+//                 <button type="button" className="btn btn-primary" onClick={deleteBet}>
+//                   Add to Profile
+//                 </button>
+//                 <NavLink
+//                   to={`/bets/${bet.id}`}
+//                   type="button"
+//                   className="btn btn-primary"
+//                 >
+//                   See More
+//                 </NavLink>
+//               </div>
+//             </div>
+//            
+
 export default Profile

@@ -23,8 +23,8 @@ function Navigation({ isLoaded }) {
     <nav className="navbar navbar-expand-lg navbar-light ">
       <div className="container-fluid">
         <Link className="navbar-brand">
-          Action
           {isLoaded && sessionLinks}
+          Action
         </Link>
         <button
           className="navbar-toggler"
@@ -50,7 +50,8 @@ function Navigation({ isLoaded }) {
               </Link>
             </li>
             <li className="nav-item dropdown">
-              <Link to=''
+              <Link
+                to=""
                 className="nav-link dropdown-toggle"
                 href="#"
                 id="navbarDropdown"
@@ -58,7 +59,7 @@ function Navigation({ isLoaded }) {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Dropdown
+                Articles
               </Link>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
@@ -103,7 +104,6 @@ function Navigation({ isLoaded }) {
               Search
             </button>
           </form>
-
         </div>
       </div>
     </nav>
