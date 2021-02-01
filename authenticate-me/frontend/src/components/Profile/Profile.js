@@ -5,6 +5,7 @@ import { deleteBetFromProfile, getProfile } from '../../store/profileReducer'
 import { getBets, getProfileBets } from '../../store/betReducer'
 import './profile.css'
 import { useHistory } from 'react-router-dom'
+import Tracker from "../Tracker/Tracker";
 
 
 const Profile = () => {
@@ -59,6 +60,11 @@ const Profile = () => {
                   </div>
                 </div>
               ))}
+              <div> 
+                <h2>Results Summary</h2>
+                <Tracker />
+              </div>
+              
             </div>
           </div>
         </div>

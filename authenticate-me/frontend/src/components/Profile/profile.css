@@ -5,7 +5,7 @@ h2 {
 
 .container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     width: 100%;
     
@@ -17,3 +17,4 @@ h2 {
     margin: 5px;
    
 }
+

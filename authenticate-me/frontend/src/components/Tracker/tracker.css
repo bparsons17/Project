@@ -1,0 +1,8 @@
+.wrapper {
+    top: auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+    
+}
